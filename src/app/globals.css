@@ -1,0 +1,8 @@
+body{
+    margin:0px
+}
+
+:root{
+    --app-btn-border-color:#fcfcfc;
+    --app-btn-hover-color:#3b4ad8;
+}

@@ -1,42 +1,45 @@
-import 'cookie-store';
-
 export class AppCookie {
-
-    static setDate(days) {
-        const dateObj = new Date()
-        dateObj.setDate(dateObj.getDate() + days)
-        return dateObj
+    static getDate(days) {
+        const dateObj = new Date();
+        dateObj.setDate(dateObj.getDate() + days);
+        return dateObj;
     }
-
     static async getCookie(key) {
         const cookieObj = await cookieStore.get(key)
-        return cookieObj?.value
+        return cookieObj?.value;
     }
 
-    static async getAllCookie(key) {
-        const cookieArr = await CookieStore.getAll(key)
-        return cookieArr
+    static async getAllCookies() {
+        const cookiesArr = await cookieStore.getAll();
+        return cookiesArr;
     }
 
-
-    static async setcookies(name, value, days) {
+    static async setCookies(name, value, days) {
         const cookieObj = { name, value }
         if (days) {
-            cookieObj.expires = AppCookie.setDate(days)
+            cookieObj.expires = AppCookie.getDate(days)
         }
-        await CookieStore.set(cookieObj)
-
+        await cookieStore.set(cookieObj)
     }
+
 
     static async deleteCookie(key) {
-        const deleteCookie = await CookieStore.delete(key)
-        return deleteCookie
+        await cookieStore.delete(key)
     }
 
+    static async hasToken() {
+        const cookieObj = await cookieStore.get("token")
 
-    static async hasToken(){
-        const cookieObj=await CookieStore.get("token")
-        return cookieObj?true:false
+        return cookieObj ? true : false
     }
 
+    static async clear() {
+        const cookies = await cookieStore.getAll()
+        cookies.forEach(({ name }) => {
+            (async () => {
+                await cookieStore.delete(name)
+            })()
+        })
+    }
 }
+

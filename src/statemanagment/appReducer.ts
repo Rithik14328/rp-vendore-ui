@@ -1,10 +1,14 @@
-export const appreduce:any=(state:any,action:any)=>{
+export const appReducer: any = (state:any, action:any) => {
+
     switch (action?.type) {
         case 'LOGIN':
             return {
                 ...state,
-                ...action.payload
+                isLoggedIn:action.payload
+                // ...action.payload
             }
         }
     return state
 }
+
+console.log(appReducer)
