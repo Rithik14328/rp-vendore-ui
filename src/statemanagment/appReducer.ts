@@ -11,4 +11,4 @@ export const appReducer: any = (state:any, action:any) => {
     return state
 }
 
-console.log(appReducer)
+// console.log(appReducer)

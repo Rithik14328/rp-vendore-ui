@@ -1,5 +1,18 @@
 [
     {
+        "lbl":"Role",
+        "tag":"input",
+        "type":"radio",
+        "name":"uid",
+        "isRequired":true,
+        "value":"",
+        "error":"",
+        "critera":["REQUIRED"],
+        "options":["admin","vendor"],
+        "values":["A","V"]
+        
+    },
+    {
         "lbl":"User ID",
         "tag":"input",
         "type":"text",

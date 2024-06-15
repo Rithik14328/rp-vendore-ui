@@ -27,8 +27,8 @@ const [formControl,setFormControl]=useState(confgi)
     <div className='container-fluid'>
       <h3 className='text-center my-3'>Login</h3>
       {
-        formControl.map((obj,ind)=>{
-          return <Input key={ind}  {...obj}  handleChange={ handleChange}/>
+        formControl.map((obj,index)=>{
+          return <Input key={index}  {...obj}  handleChange={ handleChange}/>
         })
       }
     <Button text="Login" handleClick={handleClick}  bgcolor="white"/>
