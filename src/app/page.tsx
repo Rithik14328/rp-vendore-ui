@@ -8,7 +8,7 @@ import { useAppContext } from '@/statemanagment/context'
 
 function page() {
   const {state}:any=useAppContext()
-  // console.log(state)
+  console.log(state)
   return (
     <div>
       {
