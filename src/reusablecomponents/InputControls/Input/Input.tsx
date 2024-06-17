@@ -11,7 +11,7 @@ interface propType{
     error:any,
     options?:String[],
     values?:any,
-    index:any
+    index?:any
 
 }
 
